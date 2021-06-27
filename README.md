@@ -4,5 +4,4 @@ iOS 13.0
 Built on Xcode 12.4
 No 3rd Party Libraries
 
-![Demo]
-(https://github.com/malach1/SearchRepo/blob/main/SearchRepo/Readme/GithubSearchRepo.gif)
+![Demo](https://github.com/malach1/SearchRepo/blob/main/SearchRepo/Readme/GithubSearchRepo.gif)
