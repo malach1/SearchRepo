@@ -9,21 +9,33 @@
 /* Begin PBXBuildFile section */
 		85643F622685F5B2005C09BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85643F612685F5B2005C09BE /* AppDelegate.swift */; };
 		85643F642685F5B2005C09BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85643F632685F5B2005C09BE /* SceneDelegate.swift */; };
-		85643F662685F5B2005C09BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85643F652685F5B2005C09BE /* ViewController.swift */; };
-		85643F692685F5B2005C09BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85643F672685F5B2005C09BE /* Main.storyboard */; };
 		85643F6B2685F5B3005C09BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85643F6A2685F5B3005C09BE /* Assets.xcassets */; };
 		85643F6E2685F5B3005C09BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85643F6C2685F5B3005C09BE /* LaunchScreen.storyboard */; };
+		85643F7E26860609005C09BE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85643F7D26860609005C09BE /* NetworkManager.swift */; };
+		85643F8426861044005C09BE /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85643F8326861044005C09BE /* SearchResult.swift */; };
+		85643F8D2686A244005C09BE /* RepoSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85643F8C2686A244005C09BE /* RepoSearchController.swift */; };
+		85643F902686A4E3005C09BE /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85643F8F2686A4E3005C09BE /* TabBarController.swift */; };
+		85643F952686BDE4005C09BE /* RepoSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85643F942686BDE4005C09BE /* RepoSearchCell.swift */; };
+		85643FA52687F937005C09BE /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85643FA42687F937005C09BE /* ImageHelper.swift */; };
+		85643FA92687FEEB005C09BE /* RepoSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85643FA82687FEEB005C09BE /* RepoSearchViewModel.swift */; };
+		85643FAF26880A60005C09BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85643FAE26880A60005C09BE /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		85643F5E2685F5B2005C09BE /* SearchRepo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchRepo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85643F612685F5B2005C09BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85643F632685F5B2005C09BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		85643F652685F5B2005C09BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		85643F682685F5B2005C09BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85643F6A2685F5B3005C09BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85643F6D2685F5B3005C09BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85643F6F2685F5B3005C09BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		85643F7D26860609005C09BE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		85643F8326861044005C09BE /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		85643F8C2686A244005C09BE /* RepoSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearchController.swift; sourceTree = "<group>"; };
+		85643F8F2686A4E3005C09BE /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		85643F942686BDE4005C09BE /* RepoSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearchCell.swift; sourceTree = "<group>"; };
+		85643FA42687F937005C09BE /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		85643FA82687FEEB005C09BE /* RepoSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearchViewModel.swift; sourceTree = "<group>"; };
+		85643FAE26880A60005C09BE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +68,77 @@
 		85643F602685F5B2005C09BE /* SearchRepo */ = {
 			isa = PBXGroup;
 			children = (
+				85643FA72687FED2005C09BE /* ViewModel */,
+				85643F9D2687ECCE005C09BE /* Helpers */,
+				85643F922686BDB8005C09BE /* Views */,
+				85643F8226861031005C09BE /* Model */,
+				85643F8026860FC7005C09BE /* Services */,
 				85643F612685F5B2005C09BE /* AppDelegate.swift */,
 				85643F632685F5B2005C09BE /* SceneDelegate.swift */,
-				85643F652685F5B2005C09BE /* ViewController.swift */,
-				85643F672685F5B2005C09BE /* Main.storyboard */,
+				85643FAE26880A60005C09BE /* Main.storyboard */,
 				85643F6A2685F5B3005C09BE /* Assets.xcassets */,
 				85643F6C2685F5B3005C09BE /* LaunchScreen.storyboard */,
 				85643F6F2685F5B3005C09BE /* Info.plist */,
 			);
 			path = SearchRepo;
+			sourceTree = "<group>";
+		};
+		85643F8026860FC7005C09BE /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				85643F7D26860609005C09BE /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		85643F8226861031005C09BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				85643F8326861044005C09BE /* SearchResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		85643F882686A0B6005C09BE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				85643F8C2686A244005C09BE /* RepoSearchController.swift */,
+				85643F8F2686A4E3005C09BE /* TabBarController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		85643F922686BDB8005C09BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				85643F932686BDC5005C09BE /* Cells */,
+				85643F882686A0B6005C09BE /* Controllers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		85643F932686BDC5005C09BE /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				85643F942686BDE4005C09BE /* RepoSearchCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		85643F9D2687ECCE005C09BE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				85643FA42687F937005C09BE /* ImageHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		85643FA72687FED2005C09BE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				85643FA82687FEEB005C09BE /* RepoSearchViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,9 +198,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85643FAF26880A60005C09BE /* Main.storyboard in Resources */,
 				85643F6E2685F5B3005C09BE /* LaunchScreen.storyboard in Resources */,
 				85643F6B2685F5B3005C09BE /* Assets.xcassets in Resources */,
-				85643F692685F5B2005C09BE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +211,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85643F662685F5B2005C09BE /* ViewController.swift in Sources */,
+				85643F7E26860609005C09BE /* NetworkManager.swift in Sources */,
+				85643FA92687FEEB005C09BE /* RepoSearchViewModel.swift in Sources */,
+				85643F8426861044005C09BE /* SearchResult.swift in Sources */,
+				85643F952686BDE4005C09BE /* RepoSearchCell.swift in Sources */,
+				85643F8D2686A244005C09BE /* RepoSearchController.swift in Sources */,
+				85643F902686A4E3005C09BE /* TabBarController.swift in Sources */,
 				85643F622685F5B2005C09BE /* AppDelegate.swift in Sources */,
 				85643F642685F5B2005C09BE /* SceneDelegate.swift in Sources */,
+				85643FA52687F937005C09BE /* ImageHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		85643F672685F5B2005C09BE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				85643F682685F5B2005C09BE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		85643F6C2685F5B3005C09BE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,6 +361,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L9JD9C4P3M;
 				INFOPLIST_FILE = SearchRepo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -308,6 +381,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L9JD9C4P3M;
 				INFOPLIST_FILE = SearchRepo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

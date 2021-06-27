@@ -8,42 +8,78 @@
 import UIKit
 
 class RepoSearchController: UICollectionViewController {
-    
-    fileprivate let networkManager = NetworkManager()
+    // MARK: PROPERTIES
+    fileprivate let viewModel = RepoSearchViewModel()
     fileprivate let cellID = "repoCell"
-    
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
+
+    var timer: Timer?
+
+    // MARK: Lifecycle
     init() {
-        super.init(collectionViewLayout: UICollectionViewLayout())
+        super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        collectionView.backgroundColor = .yellow
-        // register cell
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellID)
-        
-        // call network
-        networkManager.findRepositories(matching: "test")
+        initializeSearchBar()
+        viewModel.networkManager.delegate = self
+        collectionView.backgroundColor = .black
+        collectionView.register(RepoSearchCell.self, forCellWithReuseIdentifier: cellID)
     }
-    
+
+    fileprivate func initializeSearchBar() {
+        definesPresentationContext = true
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.placeholder = "Search for repositories"
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+    }
+
+    // MARK: CollectionView
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
-        cell.backgroundColor = .red
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! RepoSearchCell
+        
+        let repoDetails = viewModel.getRepositoryDetails(itemAtIndex: indexPath.item)
+        cell.repo_name.text = repoDetails.name
+        cell.repo_language.text = repoDetails.language
+        cell.repo_description.text = repoDetails.description
+        cell.repo_url.text = repoDetails.html_url
+        cell.repo_avatar.imageFromServerURL(repoDetails.owner.avatar_url, placeHolder: UIImage(named: "placeholder_icon"))
+
         return cell
     }
-    
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return viewModel.getRepositoryCount()
     }
 }
 
+// MARK: EXTENSIONS
 extension RepoSearchController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: view.frame.width, height: 250)
+        return .init(width: view.frame.width, height: 150)
+    }
+}
+
+extension RepoSearchController: RepositoryFetchDelegate {
+    func repoFetchComplete() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+}
+
+extension RepoSearchController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        timer?.invalidate() // request throttle
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (_) in
+            self.viewModel.searchForRepository(query: searchText)
+        })
     }
 }
