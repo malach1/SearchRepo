@@ -50,7 +50,10 @@ class RepoSearchController: UICollectionViewController {
         cell.repo_language.text = repoDetails.language
         cell.repo_description.text = repoDetails.description
         cell.repo_url.text = repoDetails.html_url
-        cell.repo_avatar.imageFromServerURL(repoDetails.owner.avatar_url, placeHolder: UIImage(named: "placeholder_icon"))
+        
+        guard let owner = repoDetails.owner else { return cell }
+        guard let avatarUrl = owner.avatar_url else { return cell }
+        cell.repo_avatar.imageFromServerURL(avatarUrl, placeHolder: UIImage(named: "placeholder_icon"))
 
         return cell
     }
